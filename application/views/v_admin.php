@@ -4,7 +4,7 @@
         <div class="inner">
             <h3>150</h3>
 
-            <p>Pesanan Masuk</p>
+            <p>Pesanan Masukk</p>
         </div>
         <div class="icon">
             <i class="fas fa-envelope"></i>
