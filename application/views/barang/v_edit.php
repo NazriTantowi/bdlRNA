@@ -34,6 +34,7 @@
               </select>
           </div>
         </div>
+     
         <div class="col-sm-4">
           <div class="form-group">
             <label>Harga</label>
@@ -54,6 +55,7 @@
         </textarea>
       </div>
     </div>
+   
     <div class="row">
       <div class="col-sm-6">
           <div class="form-group">

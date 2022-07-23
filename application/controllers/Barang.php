@@ -28,11 +28,11 @@ class Barang extends CI_Controller {
     // Add a new item
     public function add()
     {
-        $this->form_validation->set_rules('nama_barang', 'Nama Barang', 'required', array('required' => '%s Harus diisi !'));
-        $this->form_validation->set_rules('id_kategori', 'Kategori', 'required', array('required' => '%s Harus diisi !'));
-        $this->form_validation->set_rules('harga', 'Harga', 'required', array('required' => '%s Harus diisi !'));
-        $this->form_validation->set_rules('berat', 'Berat', 'required', array('required' => '%s Harus diisi !'));
-        $this->form_validation->set_rules('deskripsi', 'Deskripsi', 'required', array('required' => '%s Harus diisi !'));
+        $this->form_validation->set_rules('nama_barang', 'Nama Barang', 'required', array('required' => '%s Harus diisi!'));
+        $this->form_validation->set_rules('id_kategori', 'Kategori', 'required', array('required' => '%s Harus diisi!'));
+        $this->form_validation->set_rules('harga', 'Harga', 'required', array('required' => '%s Harus diisi!'));
+        $this->form_validation->set_rules('berat', 'Berat', 'required', array('required' => '%s Harus diisi!'));
+        $this->form_validation->set_rules('deskripsi', 'Deskripsi', 'required', array('required' => '%s Harus diisi!'));
 
         if ($this->form_validation->run() == TRUE) {
             $config['upload_path'] = './assets/gambar/';
@@ -44,6 +44,7 @@ class Barang extends CI_Controller {
                 $data = array(
                     'title' => 'Add barang',
                     'kategori' => $this->m_kategori->get_all_data(),
+                    'barang' => $this->m_barang->get_data($id_barang),
                     'error_upload' => $this->upload->display_errors(),
                     'isi' => 'barang/v_add',
                 );

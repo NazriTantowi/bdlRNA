@@ -64,7 +64,7 @@
         
         <div class="col-sm-6">
           <div class="form-group">
-             <img src="<?= base_url('assets/gambar/nofoto.jpg')?>" id="gambar_load" width="200px">
+             <img src="<?= base_url('assets/gambar/gdfoto.jpg')?>" id="gambar_load" width="200px">
           </div>
         </div>
         </div>
