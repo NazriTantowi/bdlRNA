@@ -27,8 +27,10 @@ class Admin extends CI_Controller
 
     public function setting()
     {
-        $this->form_validation->set_rules('deskripsi', 'Deskripsi', 'required', array('required' => '%s Harus diisi !'));
-
+        $this->form_validation->set_rules('nama_toko', 'Nama Toko', 'required', array('required' => '%s Harus diisi !'));
+        $this->form_validation->set_rules('kota', 'Kota', 'required', array('required' => '%s Harus diisi !'));
+        $this->form_validation->set_rules('alamat_toko', 'Alamat Toko', 'required', array('required' => '%s Harus diisi !'));
+        $this->form_validation->set_rules('no_telepon', 'No Telepon', 'required', array('required' => '%s Harus diisi !'));
         if ($this->form_validation->run() == FALSE) {
             $data = array(
                 'title' => 'Setting',
@@ -45,7 +47,7 @@ class Admin extends CI_Controller
                 'no_telpon' => $this->input->post('no_telpon'),
 
             );
-            $this->m_home->edit($data);
+            $this->m_admin->edit($data);
             $this->session->set_flashdata('pesan', 'Berhasil diganti !');
             
             redirect('admin/setting');

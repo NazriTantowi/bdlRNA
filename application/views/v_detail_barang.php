@@ -32,6 +32,7 @@
                 
               </div>
               <hr>
+              <h5>In stock: <?= $barang->stok ?></h5>
               <?php 
               echo form_open('belanja/add');
               echo form_hidden('id', $barang->id_barang);
@@ -43,7 +44,7 @@
               <div class="mt-4">
                 <div class="row">
                   <div class="col-sm-2">
-                    <input type="number" name="qty" class="form-control" value="1" min="1">
+                    <input type="number" name="qty" class="form-control" value="1" min="1" max="<?= $barang->stok ?>">
                   </div>
                   <div class="col-sm-8">
                     <button type="submit" class="btn btn-primary btn-lg btn-flat swalDefaultSuccess">

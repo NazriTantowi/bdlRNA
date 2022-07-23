@@ -12,7 +12,7 @@ class Rajaongkir extends CI_Controller
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => "https://api.rajaongkir.com/starter/province=8",
+            CURLOPT_URL => "https://api.rajaongkir.com/starter/province",
             CURLOPT_SSL_VERIFYHOST => 0,
             CURLOPT_SSL_VERIFYPEER => 0,
             CURLOPT_RETURNTRANSFER => true,
