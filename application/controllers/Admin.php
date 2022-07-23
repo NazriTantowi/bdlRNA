@@ -43,7 +43,7 @@ class Admin extends CI_Controller
                 'id' => 1,
                 'lokasi' => $this->input->post('kota'),
                 'nama_toko' => $this->input->post('nama_toko'),
-                'alamat toko' => $this->input->post('alamat_toko'),
+                'alamat_toko' => $this->input->post('alamat_toko'),
                 'no_telpon' => $this->input->post('no_telpon'),
 
             );
