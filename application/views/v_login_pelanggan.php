@@ -6,7 +6,7 @@
         </div>
         <div class="card">
             <div class="card-body register-card-body">
-                <p class="login-box-msg">Register new customer</p>
+                <p class="login-box-msg">Login Customer</p>
                 <?php 
                 
                 echo validation_errors('<div class="alert alert-warning alert-dismissible">
@@ -20,16 +20,9 @@
                     echo $this->session->flashdata('pesan');
                     echo '</div>';
                 }
-                echo form_open('pelanggan/register'); ?>
+                echo form_open('pelanggan/login'); ?>
 
-                    <div class="input-group mb-3">
-                        <input type="text" name="nama_pelanggan" value="<?= set_value('nama_pelanggan') ?>" class="form-control" placeholder="Name">
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-user"></span>
-                            </div>
-                        </div>
-                    </div>
+                    
                     <div class="input-group mb-3">
                         <input type="email" name="email" value="<?= set_value('email') ?>" class="form-control" placeholder="Email">
                         <div class="input-group-append">
@@ -46,19 +39,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="input-group mb-3">
-                        <input type="password" name="repassword" value="<?= set_value('repassword') ?>" class="form-control" placeholder="Retype password">
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-lock"></span>
-                            </div>
-                        </div>
-                    </div>
+                    
                     <div class="row">
                     
                         <!-- /.col -->
                         <div class="col-4">
-                            <button type="submit" class="btn btn-primary btn-block">Register</button>
+                            <button type="submit" class="btn btn-primary btn-block">Log in</button>
                         </div>
                         <!-- /.col -->
                     </div>
@@ -68,7 +54,7 @@
                     
                 </div>
 
-                <a href="<?= base_url('pelanggan/login') ?>" class="text-center">I already have an account</a>
+                <a href="<?= base_url('pelanggan/register') ?>" class="text-center">Sign Up</a>
             </div>
             </div>
             <!-- /.form-box -->
