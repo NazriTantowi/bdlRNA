@@ -45,10 +45,10 @@ class Pelanggan extends CI_Controller
     public function login()
     {
         $this->form_validation->set_rules('email', 'Email', 'required', array(
-            'required'=>'%s Harus Diisi !!!'
+            'required'=>'%s Harus Diisi!!!'
         ));
         $this->form_validation->set_rules('password', 'password', 'required', array(
-            'required'=>'%s Harus Diisi !!!'
+            'required'=>'%s Harus Diisi!!!'
         ));
 
         if ($this->form_validation->run()== TRUE) {

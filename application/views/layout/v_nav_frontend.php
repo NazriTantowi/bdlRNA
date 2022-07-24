@@ -54,6 +54,7 @@
               <span class="brand-text font-weight-light">login/register</span>
               <img src="<?= base_url() ?>template/dist/img/user1-128x128.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
             </a>
+
           <?php }else{ ?>
             <a class="nav-link" data-toggle="dropdown" href="#">
               <span class="brand-text font-weight-light"><?= $this->session->userdata('nama_pelanggan') ?></span>
