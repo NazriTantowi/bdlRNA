@@ -8,6 +8,7 @@ class Belanja extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
+        $this->load->model('m_transaksi');
         
     }
     
@@ -62,11 +63,21 @@ class Belanja extends CI_Controller {
 
     public function cekout(){
         $this->pelanggan_login->proteksi_halaman();
-        $data = array(
-            'title' => 'Cekout Belanja',
-            'isi' => 'v_cekout',
-        );
-        $this->load->view('layout/v_wrapper_frontend', $data, FALSE);
+        $this->form_validation->set_rules('nama_barang', 'Nama Barang', 'required', array('required' => '%s Harus diisi !'));
+
+
+        if ($this->form_validation->run() == FALSE) {
+            $data = array(
+                'title' => 'Cekout Belanja',
+                'isi' => 'v_cekout',
+            );
+            $this->load->view('layout/v_wrapper_frontend', $data, FALSE);
+        } else {
+            # code...
+        }
+        
+        
+       
 
     }
 
@@ -75,4 +86,5 @@ class Belanja extends CI_Controller {
         $this->cart->destroy();
         redirect('belanja');
     }
-}
+
+}   

@@ -53,7 +53,7 @@
 
             <!-- buat random angka di cekout -->
             <?php
-            echo form_open ('belanja/proses_cekout');
+            echo form_open ('belanja/cekout');
             $no_order= date('Ymd').strtoupper(random_string('alnum',8));
             echo $no_order;
             ?>
@@ -214,7 +214,7 @@
             });
         });
 
-        // 
+         
         $("select[nama=paket]").on("change", function() {
             //menampilkan ongkir
             var dataongkir = $("option:selected", this). attr('ongkir');
@@ -228,12 +228,10 @@
                 ribuan_total_bayar = ribuan_total_bayar.join(',').split('').reverse().jpin('');
                 $("#total_bayar").html("Rp." + ribuan_total_bayar)
 
-            //estimasi dan ongkir
+            estimasi dan ongkir
             var estimasi= $("option:selected", this). attr('estimasi');
             $("input[name=estimasi]").val(estimasi);
-
-
-
         });
+         
     });
 </script>
