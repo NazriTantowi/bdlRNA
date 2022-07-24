@@ -93,34 +93,33 @@
                     <div class="col-sm-8">
                         <div class="form-group">
                             <label>Alamat</label>
-                            <select name="alamat" class="form-control"></select>
+                            <input name="alamat" class="form-control"></input>
                         </div>
                     </div>
 
                     <div class="col-sm-4">
                         <div class="form-group">
                             <label>Kode POS</label>
-                            <select name="kode_pos" class="form-control"></select>
+                            <input name="kode_pos" class="form-control"></input>
                         </div>
                     </div>
 
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>Nama Penerima</label>
-                            <select name="nama_penerima" class="form-control"></select>
+                            <input name="nama_penerima" class="form-control"></input>
                         </div>
                     </div>
 
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>Telpon Penerima</label>
-                            <select name="hp_penerima" class="form-control"></select>
+                            <input name="hp_penerima" class="form-control"></input>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="col-4">
+                
+                <div class="col-4">
                 <div class="table-responsive">
                     <table class="table">
                         <tr>
@@ -146,7 +145,12 @@
                 </div>
             </div>
 
-        </div>
+        </div>                    
+
+            </div>
+
+
+            
 
         <!--simpan transaksi -->
         <input name="no_order" value="<?= $no_order ?>">   
@@ -214,24 +218,7 @@
             });
         });
 
-         
-        $("select[nama=paket]").on("change", function() {
-            //menampilkan ongkir
-            var dataongkir = $("option:selected", this). attr('ongkir');
-            var reverse = dataongkir.toString().split(''.reverse().join('')),
-                ribuan_ongkir = ribuan_ongkir.join(',').split('').reverse().jpin('');
 
-            $("#ongkir").html("Rp." + ribuan_ongkir)
-            //menghitung total bayar
-            var data_total_bayar  = parseInt(dataongkir) + parseInt(<?= $this->cart_>total()?>)
-            var reverse2 =  data_total_bayar.toString().split(''.reverse().join('')),
-                ribuan_total_bayar = ribuan_total_bayar.join(',').split('').reverse().jpin('');
-                $("#total_bayar").html("Rp." + ribuan_total_bayar)
-
-            estimasi dan ongkir
-            var estimasi= $("option:selected", this). attr('estimasi');
-            $("input[name=estimasi]").val(estimasi);
-        });
          
     });
 </script>
