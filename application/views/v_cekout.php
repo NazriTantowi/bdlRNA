@@ -4,37 +4,11 @@
         <div class="col-12">
             <h4>
             <i class="fas fa-shopping-cart"></i> Cekout.
-            <small class="float-right">Date: 2/10/2014</small>
+            <small class="float-right">Date: <?= date('d-m-Y')?></small>
             </h4>
         </div>
 
     </div>
-
-        <div class="row invoice-info">
-            <div class="col-sm-4 invoice-col">
-            From
-            <address>
-            <strong>Admin, Inc.</strong><br>
-            795 Folsom Ave, Suite 600<br>
-            San Francisco, CA 94107<br>
-            Phone: (804) 123-5432<br>
-            Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="71181f171e31101d1c10021014141502050415181e5f121e1c">[email&#160;protected]</a>
-            </address>
-            </div>
-
-            <div class="col-sm-4 invoice-col">
-        
-            </div>
-
-            <div class="col-sm-4 invoice-col">
-            <b>Invoice #007612</b><br>
-            <br>
-            <b>Order ID:</b> 4F3S8J<br>
-            <b>Payment Due:</b> 2/22/2014<br>
-            <b>Account:</b> 968-34567
-            </div>
-
-        </div>
 
         <!-- Tabel row -->
         <div class="row">
@@ -77,6 +51,13 @@
 
             <div class="row">
 
+            <!-- buat random angka di cekout -->
+            <?php
+            echo form_open ('belanja/proses_cekout');
+            $no_order= date('Ymd').strtoupper(random_string('alnum',8));
+            echo $no_order;
+            ?>
+
             <!-- acc pyment colum -->
             <div class="col-sm-8 invoice-col">
              Tujuan:
@@ -107,6 +88,34 @@
                             <label>Paket</label>
                             <select name="paket" class="form-control"></select>
                         </div>
+
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="form-group">
+                            <label>Alamat</label>
+                            <select name="alamat" class="form-control"></select>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>Kode POS</label>
+                            <select name="kode_pos" class="form-control"></select>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Nama Penerima</label>
+                            <select name="nama_penerima" class="form-control"></select>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Telpon Penerima</label>
+                            <select name="hp_penerima" class="form-control"></select>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -115,7 +124,7 @@
                 <div class="table-responsive">
                     <table class="table">
                         <tr>
-                            <th style="width:50%">Subtotal:</th>
+                            <th style="width:50%">Grand Total:</th>
                             <td>Rp. <?php echo $this->cart->format_number($this->cart->total(), 0); ?></td>
                         </tr>
 
@@ -139,15 +148,22 @@
 
         </div>
 
-
+        <!--simpan transaksi -->
+        <input name="no_order" value="<?= $no_order ?>">   
+        <input name="estimasi">  
+        <input name="ongkir">      
+        <input name="berat" value="<?= $tot_berat ?> Gr" > 
+        <input name="grand_total" value="<?= $this->cart->total() ?>">     
+        <input name="total_value">                   
         <div class="row no-print">
             <div class="col-12">
                 <a href="<?= base_url('belanja') ?>" class="btn btn-warning"><i class="fas fa-backward"></i> Kembali ke Keranjang</a>
-                <button type="button" class="btn btn-primary float-right" style="margin-right: 5px;">
+                <button type="submit" class="btn btn-primary float-right" style="margin-right: 5px;">
                 <i class="fas fa-shopping-cart"></i> Proses Cekout
             </button>
         </div>
     </div>
+    <?php echo form_close() ?>
 </div>
 
 <script>
@@ -196,6 +212,27 @@
                     $("select[name=paket]").html(hasil_paket);
                 }
             });
+        });
+
+        // 
+        $("select[nama=paket]").on("change", function() {
+            //menampilkan ongkir
+            var dataongkir = $("option:selected", this). attr('ongkir');
+            var reverse = dataongkir.toString().split(''.reverse().join('')),
+                ribuan_ongkir = ribuan_ongkir.join(',').split('').reverse().jpin('');
+
+            $("#ongkir").html("Rp." + ribuan_ongkir)
+            //menghitung total bayar
+            var data_total_bayar  = parseInt(dataongkir) + parseInt(<?= $this->cart_>total()?>)
+            var reverse2 =  data_total_bayar.toString().split(''.reverse().join('')),
+                ribuan_total_bayar = ribuan_total_bayar.join(',').split('').reverse().jpin('');
+                $("#total_bayar").html("Rp." + ribuan_total_bayar)
+
+            //estimasi dan ongkir
+            var estimasi= $("option:selected", this). attr('estimasi');
+            $("input[name=estimasi]").val(estimasi);
+
+
 
         });
     });
