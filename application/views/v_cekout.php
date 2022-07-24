@@ -118,7 +118,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="col-4">
                 <div class="table-responsive">
                     <table class="table">
@@ -141,7 +141,7 @@
                             <th>Total Bayar:</th>
                             <td><label>0</label></td>
                         </tr>
-                </table>
+                    </table>
                 </div>
             </div>
 
