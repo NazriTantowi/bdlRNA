@@ -217,7 +217,5 @@ foreach ($this->cart->contents() as $items){
                 }
             });
         });
-
-         
     });
 </script>
