@@ -6,6 +6,11 @@ class Rajaongkir extends CI_Controller
 {
     private $api_key = '4572e9c6135799267e9175b40ebf0843';
 
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model('m_admin');
+    }
     public function provinsi()
     {
         
@@ -94,8 +99,9 @@ class Rajaongkir extends CI_Controller
 
     public function paket()
     {
+        $id_kota_asal = $this->m_admin->data_setting()->lokasi;
         $curl = curl_init();
-
+        
         curl_setopt_array($curl, array(
             CURLOPT_URL => "https://api.rajaongkir.com/starter/cost",
             CURLOPT_SSL_VERIFYHOST => 0,

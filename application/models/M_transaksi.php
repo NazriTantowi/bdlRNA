@@ -11,9 +11,9 @@ class M_transaksi extends CI_Model
         
     }
 
-    public function simpan_rinci_transaksi($data)
+    public function simpan_rinci_transaksi($data_rinci)
     {
-        $this->db->insert('tbl_rinci_transaksi', $data);
+        $this->db->insert('tbl_rinci_transaksi', $data_rinci);
         
     }
 }

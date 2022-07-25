@@ -61,24 +61,47 @@ class Belanja extends CI_Controller {
         redirect('belanja');
     }
 
-    public function cekout(){
+    public function cekout()
+    {
         $this->pelanggan_login->proteksi_halaman();
-        $this->form_validation->set_rules('nama_barang', 'Nama Barang', 'required', array('required' => '%s Harus diisi !'));
-
-
-        if ($this->form_validation->run() == FALSE) {
-            $data = array(
-                'title' => 'Cekout Belanja',
+        $data = array(
+                'title' => 'Check-Out',
                 'isi' => 'v_cekout',
             );
-            $this->load->view('layout/v_wrapper_frontend', $data, FALSE);
-        } else {
-            # code...
-        }
-        
-        
-       
+        $this->load->view('layout/v_wrapper_frontend', $data, FALSE);
+    
+    }
 
+    public function proses_cekout()
+    {
+        $data = array(
+            'no_order' => $this->input->post('no_order'),
+            'tgl_order' => date('Y-m-d'),
+            'provinsi' => $this->input->post('provinsi'),
+            'kota' => $this->input->post('kota'),
+            'expedisi' => $this->input->post('expedisi'),
+            'paket' => $this->input->post('paket'),
+            'alamat' => $this->input->post('alamat'),
+            'kode_pos' => $this->input->post('kode_pos'),
+            'nama_penerima' => $this->input->post('nama_penerima'),
+            'hp_penerima' => $this->input->post('hp_penerima'),
+            'berat' => $this->input->post('berat'),
+            'grand_total' => $this->input->post('grand_total'),
+            'total_bayar' => $this->input->post('total_bayar'),
+            'status_bayar' => 0,
+            'status_order' => 1,
+        );
+        $this->m_transaksi->simpan_transaksi($data);
+        $i=1;
+        foreach ($this->cart->contents() as $item){
+            $data_rinci = array(
+                'no_order' => $this->input->post('no_order'),
+                'id_barang' => $item['id'],
+                'qty' => $this->input->post('qty'.$i++)
+            );
+            $this->m_transaksi->simpan_rinci_transaksi($data_rinci);
+        }
+        redirect('pesanan_saya');
     }
 
     public function clear()
