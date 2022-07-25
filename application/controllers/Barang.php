@@ -44,7 +44,6 @@ class Barang extends CI_Controller {
                 $data = array(
                     'title' => 'Add barang',
                     'kategori' => $this->m_kategori->get_all_data(),
-                    'barang' => $this->m_barang->get_data($id_barang),
                     'error_upload' => $this->upload->display_errors(),
                     'isi' => 'barang/v_add',
                 );

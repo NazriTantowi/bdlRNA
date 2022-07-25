@@ -1,7 +1,3 @@
-<div class="row">
-    
-
-
 
 <div class="col-sm-12">
     <?php
@@ -19,7 +15,7 @@
                 <li class="nav-item">
                     <a class="nav-link active" id="custom-tabs-four-home" data-toggle="pill" 
                     href="#custom-tabs-four-home" role="tab" aria-controls="custom-tabs-four-home" 
-                    aria-selected="true">Order</a>
+                    aria-selected="true">Pesanan Masuk</a>
                 </li>
 
                 <li class="nav-item">
@@ -52,9 +48,9 @@
                                 <th>Tanggal</th>
                                 <th>Expedisi</th>
                                 <th>Total_Bayar</th>
-                                <th>Action</th>
+                                <th> </th>
                             </tr>
-                            <?php foreach ($belum_bayar as $key => $value) {?>
+                            <?php foreach ($pesanan as $key => $value) {?>
                             <tr>
                                 <td><?= $value->no_order ?></td>
                                 <td><?= $value->tgl_order ?></td>
@@ -72,9 +68,10 @@
                                     <?php }?>
                                 </td>
                                 <td>
-                                    <?php if($value->status_bayar==0) {?>
-                                        <a href="<?= base_url('pesanan_saya/bayar/'.$value->id_transaksi)?>" 
-                                        class="btn btn-sm btn-flat btn-primary">Bayar</a?>
+                                    <?php if($value->status_bayar== 1) {?>
+                                        <button class="btn btn-sm btn-success" data-toggle="modal" data-target="#modal-default">Cek Bukti Bayar</button>
+                                        <a href="<?= base_url('admin/Proses/'.$value->id_transaksi)?>" 
+                                        class="btn btn-sm btn-flat btn-primary">Proses</a?>
                                     <?php }?>
                                     
                                 </td>
@@ -104,4 +101,24 @@
         </div>
     </div>
 </div>
+
+<!-- modal cek bukti pembayaran -->
+<div class="modal fade" id="modal-default">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Default Modal</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>One fine body&hellip;</p>
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
 </div>

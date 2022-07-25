@@ -36,7 +36,8 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="<?= base_url('admin')?>" class="nav-link <?php if ($this->uri->segment(1) == 'admin') 
+            <a href="<?= base_url('admin')?>" class="nav-link 
+            <?php if ($this->uri->segment(1) == 'admin' and $this->uri->segment(2) =="") 
             echo "active"; 
             ?>">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -63,11 +64,21 @@
           </li>
 
           <li class="nav-item">
-            <a href="<?= base_url('gambarbarang')?>" class="nav-link <?php if ($this->uri->segment(1) == 'gambarbarang') 
+            <a href="<?= base_url('gambarbarang')?>" class="nav-link <?php if ($this->uri->segment(1) == 'gambarbarang')
             echo "active"; 
             ?>">
               <i class="nav-icon fas fa-image"></i>
               <p>Gambar Produk</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="<?= base_url('admin/pesanan_masuk')?>" class="nav-link 
+            <?php if ($this->uri->segment(2) == 'pesanan_masuk' and $this->uri->segment(1) == 'admin') 
+            echo "active"; 
+            ?>">
+              <i class="nav-icon fas fa-download"></i>
+              <p>Pesanan Masuk</p>
             </a>
           </li>
 
