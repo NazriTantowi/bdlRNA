@@ -75,6 +75,7 @@ class Belanja extends CI_Controller {
     public function proses_cekout()
     {
         $data = array(
+            'id_pelanggan'=> $this->session->userdata('id_pelanggan'),
             'no_order' => $this->input->post('no_order'),
             'tgl_order' => date('Y-m-d'),
             'provinsi' => $this->input->post('provinsi'),
