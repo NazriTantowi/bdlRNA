@@ -47,7 +47,7 @@ class Pesanan_saya extends CI_Controller
                 $this->load->library('image_lib', $config);
                 $data = array(
                     'id_transaksi' => $id_transaksi,
-                    'atas_nama' => $this->input->post('id_kategori'),
+                    'atas_nama' => $this->input->post('atas_nama'),
                     'nama_bank' => $this->input->post('nama_bank'),
                     'no_rek' => $this->input->post('no_rek'),
                     'status_bayar' => '1',

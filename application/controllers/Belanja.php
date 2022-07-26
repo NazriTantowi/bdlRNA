@@ -90,7 +90,7 @@ class Belanja extends CI_Controller {
             'grand_total' => $this->input->post('grand_total'),
             'total_bayar' => $this->input->post('total_bayar'),
             'status_bayar' => 0,
-            'status_order' => 1,
+            'status_order' => 0,
         );
         $this->m_transaksi->simpan_transaksi($data);
         $i=1;
