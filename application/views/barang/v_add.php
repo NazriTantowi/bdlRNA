@@ -24,7 +24,7 @@
       </div>
 
       <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-3">
           <div class="form-group">
               <label>Kategori</label>
               <select name="id_kategori" class="form-control">
@@ -35,16 +35,22 @@
               </select>
           </div>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-3">
           <div class="form-group">
             <label>Harga</label>
             <input name="harga" class="form-control" placeholder="Harga Barang" value="<?= set_value('harga')?>"> 
           </div>
         </div> 
-        <div class="col-sm-4">
+        <div class="col-sm-3">
           <div class="form-group">
             <label>Berat (Gr)</label>
             <input type="number" name="berat" min="0" class="form-control" placeholder="Berat dalam satuan gram" value="<?= set_value('berat')?>"> 
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="form-group">
+            <label>Stok</label>
+            <input type="number" name="stok" min="0" class="form-control" placeholder="stok barang" value="<?= set_value('stok')?>"> 
           </div>
         </div>
       </div>

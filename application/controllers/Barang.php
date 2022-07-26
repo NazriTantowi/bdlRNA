@@ -58,6 +58,7 @@ class Barang extends CI_Controller {
                     'id_kategori' => $this->input->post('id_kategori'),
                     'harga' => $this->input->post('harga'),
                     'berat' => $this->input->post('berat'),
+                    'stok' => $this->input->post('stok'),
                     'deskripsi' => $this->input->post('deskripsi'),
                     'gambar' => $upload_data['uploads']['file_name'],
                 );
