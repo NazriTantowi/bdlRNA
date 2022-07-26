@@ -14,7 +14,7 @@
         <div class="card-header p-0 border-bottom-0">
             <ul class="nav nav-tabs" id="custom-tabs-four-tab" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link active" id="custom-tabs-four-home" data-toggle="pill" 
+                    <a class="nav-link active" id="custom-tabs-four-home-tab" data-toggle="pill" 
                     href="#custom-tabs-four-home" role="tab" aria-controls="custom-tabs-four-home" 
                     aria-selected="true">Order</a>
                 </li>
@@ -36,7 +36,7 @@
                     aria-selected="false">Selesai</a>
                 </li>
             </ul>
-            </div>
+        </div>
             
         <!--DATA PESANAN ORDER BELUM BAYAR-->
             <div class="card-body">
@@ -89,7 +89,7 @@
                                 <th>No Order</th>
                                 <th>Tanggal</th>
                                 <th>Expedisi</th>
-                                <th>Total_Bayar</th>
+                                <th>Total Bayar</th>
                             </tr>
                             <?php foreach ($diproses as $key => $value) {?>
                             <tr>
@@ -113,11 +113,64 @@
                     </div>
 
                     <div class="tab-pane fade" id="custom-tabs-four-messages" role="tabpanel" aria-labelledby="custom-tabs-four-messages-tab">
-                    Morbi turpis dolor, vulputate vitae felis non, tincidunt congue mauris. Phasellus volutpat augue id mi placerat mollis. Vivamus faucibus eu massa eget condimentum. Fusce nec hendrerit sem, ac tristique nulla. Integer vestibulum orci odio. Cras nec augue ipsum. Suspendisse ut velit condimentum, mattis urna a, malesuada nunc. Curabitur eleifend facilisis velit finibus tristique. Nam vulputate, eros non luctus efficitur, ipsum odio volutpat massa, sit amet sollicitudin est libero sed ipsum. Nulla lacinia, ex vitae gravida fermentum, lectus ipsum gravida arcu, id fermentum metus arcu vel metus. Curabitur eget sem eu risus tincidunt eleifend ac ornare magna.
+                        <table class="table">
+                            <tr>
+                                <th>No Order</th>
+                                <th>Tanggal</th>
+                                <th>Expedisi</th>
+                                <th>Total Bayar</th>
+                                <th>No. Resi</th>
+                                <th>Konfirmasi</th>
+                            </tr>
+                            <?php foreach ($dikirim as $key => $value) {?>
+                            <tr>
+                                <td><?= $value->no_order ?></td>
+                                <td><?= $value->tgl_order ?></td>
+                                <td>
+                                    <b><?= $value->expedisi ?></b><br>
+                                    
+                                </td>
+                                <td>
+                                    <b>Rp. <?= number_format($value->total_bayar,0) ?></b><br>
+                                    <span class="badge badge-success">Dikirim</span>
+                                </td>
+                                <td>
+                                    <b><?= $value->no_resi ?></b><br>
+                                </td>
+                                <td>
+                                    <button href="" class="btn btn-sm btn-flat btn-primary" data-toggle="modal" data-target="#diterima<?= $value->id_transaksi ?>">Diterima</button>
+                                </td>
+                            </tr>
+                           <?php } ?>
+                        </table>
                     </div>
-
                     <div class="tab-pane fade" id="custom-tabs-four-settings" role="tabpanel" aria-labelledby="custom-tabs-four-settings-tab">
-                    Pellentesque vestibulum commodo nibh nec blandit. Maecenas neque magna, iaculis tempus turpis ac, ornare sodales tellus. Mauris eget blandit dolor. Quisque tincidunt venenatis vulputate. Morbi euismod molestie tristique. Vestibulum consectetur dolor a vestibulum pharetra. Donec interdum placerat urna nec pharetra. Etiam eget dapibus orci, eget aliquet urna. Nunc at consequat diam. Nunc et felis ut nisl commodo dignissim. In hac habitasse platea dictumst. Praesent imperdiet accumsan ex sit amet facilisis.
+                        <table class="table">
+                            <tr>
+                                <th>No Order</th>
+                                <th>Tanggal</th>
+                                <th>Expedisi</th>
+                                <th>Total Bayar</th>
+                                <th>No. Resi</th>
+                            </tr>
+                            <?php foreach ($selesai as $key => $value) {?>
+                            <tr>
+                                <td><?= $value->no_order ?></td>
+                                <td><?= $value->tgl_order ?></td>
+                                <td>
+                                    <b><?= $value->expedisi ?></b><br>
+                                    
+                                </td>
+                                <td>
+                                    <b>Rp. <?= number_format($value->total_bayar,0) ?></b><br>
+                                    <span class="badge badge-success">Selesai</span>
+                                </td>
+                                <td>
+                                    <b><?= $value->no_resi ?></b><br>
+                                </td>
+                            </tr>
+                           <?php } ?>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -126,3 +179,27 @@
     </div>
 </div>
 </div>
+
+<?php foreach ($dikirim as $key => $value) { ?>
+    <div class="modal fade" id="diterima<?= $value->id_transaksi ?>">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Confirmation</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Apakah Pesanan Sudah Diterima...?
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Belum</button>
+                    <a href="<?= base_url('pesanan_saya/diterima/'.$value->id_transaksi) ?>" type="button" class="btn btn-primary">Ya</a>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+<?php } ?>
