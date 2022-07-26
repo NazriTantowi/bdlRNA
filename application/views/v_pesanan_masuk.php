@@ -103,9 +103,11 @@
                                 </td>
                                 <td>
                                     <?php if($value->status_bayar == 1) {?>
-                                        <button class="btn btn-sm btn-flat btn-primary" data-toggle="modal" data-target="#kirim
-                                        <?= $value->id_transaksi ?>">
+
+                                        <button class="btn btn-sm btn-flat btn-primary" data-toggle="modal" 
+                                        data-target="#kirim <?= $value->id_transaksi ?>">
                                         <i class="fas fa-paper-plane"></i> Kirim</button>
+
                                     <?php }?>
                                     
                                 </td>
@@ -184,7 +186,7 @@
                     <?php echo form_open() ?>
                         <table class="table">
                         <tr>
-                            <th>Ekspedisi</th>
+                            <th>Expedisi</th>
                             <th>:</th>
                             <td><?= $value->expedisi ?></td>
                         </tr>
@@ -198,7 +200,7 @@
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     <button type="button" class="btn btn-primary">Save changes</button>
                 </div>
-                    <?php echo form_close()?>
+                <?php echo form_close()?>
             </div>
         </div>
     </div>
