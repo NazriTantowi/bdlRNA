@@ -101,6 +101,7 @@ class Belanja extends CI_Controller {
                 'qty' => $this->input->post('qty'.$i++)
             );
             $this->m_transaksi->simpan_rinci_transaksi($data_rinci);
+            $this->cart->destroy();
         }
         redirect('pesanan_saya');
     }

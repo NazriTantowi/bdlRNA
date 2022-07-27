@@ -21,6 +21,7 @@ class Home extends CI_Controller {
             'isi' => 'v_home',
         );
         $this->load->view('layout/v_wrapper_frontend', $data, FALSE);
+        //$this->load->view('v_newhome');
         
     }
 

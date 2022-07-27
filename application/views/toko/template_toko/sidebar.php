@@ -50,7 +50,7 @@
                             <i class="fas fa-fw fa-inbox"></i>
                             <span>Order Masuk</span>
                         </a>
-                        <a class="collapse-item" href="login.html">
+                        <a class="collapse-item" href="<?= base_url('toko/order/all') ?>">
                             <i class="fas fa-fw fa-book"></i>
                             <span>Order History</span>
                         </a>
@@ -67,7 +67,7 @@
                 </a>
                 <div id="collapsePages2" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="login.html">
+                        <a class="collapse-item" href="<?= base_url('toko/laporan') ?>">
                             <i class="fas fa-fw fa-chart-bar"></i>
                             <span>Laporan Toko</span>
                         </a>

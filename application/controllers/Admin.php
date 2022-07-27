@@ -17,7 +17,27 @@ class Admin extends CI_Controller
 
     public function index()
     {
+        
         $data = array(
+            'toko' => $this->db->query("SELECT tbl_toko.nama_toko, SUM(tbl_transaksi.total_bayar) AS jumlah, COUNT(tbl_rinci_transaksi.id_barang) AS produk
+                                        FROM tbl_transaksi, tbl_toko, tbl_barang, tbl_rinci_transaksi
+                                        WHERE tbl_transaksi.no_order = tbl_rinci_transaksi.no_order
+                                        AND tbl_rinci_transaksi.id_barang = tbl_barang.id_barang
+                                        AND tbl_toko.id_toko = tbl_barang.id_toko
+                                        GROUP BY tbl_toko.id_toko
+                                        ORDER BY jumlah DESC, produk DESC")->result(),
+            'produk' => $this->db->query("  SELECT tbl_barang.nama_barang, COUNT(tbl_rinci_transaksi.id_barang) AS jumlah
+                                            FROM tbl_transaksi, tbl_toko, tbl_barang, tbl_rinci_transaksi
+                                            WHERE tbl_transaksi.no_order = tbl_rinci_transaksi.no_order
+                                            AND tbl_rinci_transaksi.id_barang = tbl_barang.id_barang
+                                            AND tbl_toko.id_toko = tbl_barang.id_toko
+                                            GROUP BY tbl_barang.id_barang
+                                            ORDER BY jumlah DESC")->result(),
+            'cust' => $this->db->query("SELECT *, COUNT(tbl_transaksi.id_pelanggan) AS jumlah
+                                        FROM tbl_transaksi, tbl_pelanggan
+                                        WHERE tbl_pelanggan.id_pelanggan = tbl_transaksi.id_pelanggan
+                                        GROUP BY tbl_pelanggan.id_pelanggan
+                                        ORDER BY jumlah DESC")->result(),                            
             'title' => 'Dasboard',
             'total_barang' => $this->m_admin->total_barang(),
             'total_kategori' => $this->m_admin->total_kategori(),
@@ -96,4 +116,5 @@ class Admin extends CI_Controller
         redirect('admin/pesanan_masuk');
         
     }
+    
 }

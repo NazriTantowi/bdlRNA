@@ -62,4 +62,23 @@ class Order extends CI_Controller
         redirect('toko/order');
         
     }
+
+    public function all()
+    {
+        $data['toko'] = $this->db->get_where('tbl_toko', ['email' => $this->session->userdata('email')])->row_array();
+        $id_toko = $data['toko']['id_toko'];
+        $data['order'] = $this->db->query(" SELECT      *
+                                            FROM        tbl_transaksi, tbl_rinci_transaksi, tbl_barang, tbl_toko, tbl_pelanggan
+                                            WHERE       tbl_pelanggan.id_pelanggan = tbl_transaksi.id_pelanggan
+                                            AND         tbl_transaksi.no_order = tbl_rinci_transaksi.no_order
+                                            AND         tbl_rinci_transaksi.id_barang = tbl_barang.id_barang
+                                            AND	        tbl_barang.id_toko = tbl_toko.id_toko
+                                            AND         tbl_toko.id_toko = $id_toko
+                                            ORDER BY    tbl_transaksi.tgl_order DESC")->result();
+        
+        $this->load->view('toko/template_toko/header', $data);
+        $this->load->view('toko/template_toko/sidebar', $data);
+        $this->load->view('toko/v_allorder', $data);
+        $this->load->view('toko/template_toko/footer', $data);
+    }
 }
