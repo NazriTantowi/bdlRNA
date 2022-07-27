@@ -39,4 +39,16 @@ class M_barang extends CI_Model
         $this->db->where('id_barang', $data['id_barang']);
         $this->db->delete('tbl_barang', $data);  
     }
+
+    public function get_all_data_toko($id)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_barang');
+        $this->db->join('tbl_kategori', 'tbl_kategori.id_kategori = tbl_barang.id_kategori');
+        $this->db->join('tbl_toko', 'tbl_toko.id_toko = tbl_barang.id_toko');
+        $this->db->where('tbl_barang.id_toko', $id);
+        $this->db->order_by('tbl_barang.id_barang', 'desc');
+        return $this->db->get()->result();
+        
+    }
 }

@@ -2,7 +2,7 @@
     <div class="col-sm-4"> </div>
     <div class="register-box">
         <div class="register-logo">
-            <a href="../../index2.html"><b>Admin</b>LTE</a>
+            <a href="../../index2.html"><b>RNA</b>Store</a>
         </div>
         <div class="card">
             <div class="card-body register-card-body">

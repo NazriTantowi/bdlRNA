@@ -16,6 +16,18 @@ class M_auth extends CI_Model {
 
     }
 
+    public function login_toko($email, $password)
+    {
+      $this->db->select('*');
+      $this->db->from('tbl_toko');
+      $this->db->where(array (
+          'email' => $email, 
+          'password' => $password
+        ));
+        return $this->db->get()-> row();
+
+    }
+
     public function login_pelanggan($email, $password)
     {
       $this->db->select('*');
