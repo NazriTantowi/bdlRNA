@@ -27,6 +27,7 @@
                             <th>Nama Produk</th>
                             <th>Kategori</th>
                             <th>Harga</th>
+                            <th>Stok</th>
                             <th>Gambar</th>
                             <th>Action</th>
                         </tr>
@@ -42,11 +43,13 @@
                             </td>
                             <td class="text-center"><?= $value->nama_kategori ?></td>
                             <td class="text-center">Rp. <?= number_format($value->harga, 0) ?></td>
+                            <td class="text-center"><?= $value->stok ?></td>
                             <td class="text-center"><img src="<?= base_url ('assets/gambar/'. $value -> gambar)?>" width="150px"></td>
                             <td class="text-center">
                                 <a href="<?= base_url('barang/edit/' . $value->id_barang)?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
                                 <button class="btn btn-danger btn-sm"data-toggle="modal" data-target="#delete<?=$value->id_barang?>" ><i class="fas fa-trash"></i></button>
                             </td>
+                            
                         </tr>
                         <?php } ?>
 

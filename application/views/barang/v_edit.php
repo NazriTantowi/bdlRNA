@@ -23,7 +23,8 @@
         <input name="nama_barang" class="form-control" placeholder="Nama Barang" value="<?= $barang->nama_barang?>"> 
       </div>
       <div class="row">
-        <div class="col-sm-4">
+
+        <div class="col-sm-3">
           <div class="form-group">
             <label>Kategori</label>
               <select name="id_kategori" class="form-control">
@@ -35,16 +36,22 @@
           </div>
         </div>
      
-        <div class="col-sm-4">
+        <div class="col-sm-3">
           <div class="form-group">
             <label>Harga</label>
             <input name="harga" class="form-control" placeholder="Harga Barang" value="<?= $barang->harga?>"> 
           </div>
         </div> 
-        <div class="col-sm-4">
+        <div class="col-sm-3">
           <div class="form-group">
             <label>Berat (Gr)</label>
             <input type="number" name="berat" min="0" class="form-control" placeholder="Berat dalam satuan gram" value="<?= $barang->berat?>"> 
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="form-group">
+            <label>Stok Barang</label>
+            <input type="number"  min="0" class="form-control" placeholder="Jumlah Stok Barang" value="<?= $barang->stok?>"> 
           </div>
         </div>
       </div>

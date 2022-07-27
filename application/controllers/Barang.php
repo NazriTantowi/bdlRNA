@@ -84,6 +84,7 @@ class Barang extends CI_Controller {
         $this->form_validation->set_rules('id_kategori', 'Kategori', 'required', array('required' => '%s Harus diisi !'));
         $this->form_validation->set_rules('harga', 'Harga', 'required', array('required' => '%s Harus diisi !'));
         $this->form_validation->set_rules('berat', 'Berat', 'required', array('required' => '%s Harus diisi !'));
+        $this->form_validation->set_rules('stok', 'Stok', 'required', array('required' => '%s Harus diisi !'));
         $this->form_validation->set_rules('deskripsi', 'Deskripsi', 'required', array('required' => '%s Harus diisi !'));
 
         if ($this->form_validation->run() == TRUE) {
@@ -118,6 +119,7 @@ class Barang extends CI_Controller {
                     'id_kategori' => $this->input->post('id_kategori'),
                     'harga' => $this->input->post('harga'),
                     'berat' => $this->input->post('berat'),
+                    'stok' => $this->input->post('stok'),
                     'deskripsi' => $this->input->post('deskripsi'),
                     'gambar' => $upload_data['uploads']['file_name'],
                 );
@@ -132,6 +134,7 @@ class Barang extends CI_Controller {
                 'id_kategori' => $this->input->post('id_kategori'),
                 'harga' => $this->input->post('harga'),
                 'berat' => $this->input->post('berat'),
+                'stok' => $this->input->post('stok'),
                 'deskripsi' => $this->input->post('deskripsi'),
             );
             $this->m_barang->edit($data);
