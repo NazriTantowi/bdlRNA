@@ -158,8 +158,8 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Online Shop</a></li>
-              <li class="breadcrumb-item"><a href="#"><?= $title ?></a></li>
+              <li class="breadcrumb-item"><a href="<?php echo base_url('auth/login_user') ?>">Admin Login</a></li>
+              <li class="breadcrumb-item"><a href="<?php echo base_url('auth/login_toko') ?>">Tenant Login</a></li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->

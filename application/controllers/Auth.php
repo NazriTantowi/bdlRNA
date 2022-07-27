@@ -24,9 +24,35 @@ class Auth extends CI_Controller {
         $this->load->view('v_login_user', $data, FALSE);
         
     }
+
     public function logout_user()
     {
         $this->user_login->logout();
     }
 
+    public function login_toko()
+    {
+        $this->form_validation->set_rules('email', 'email', 'required', array(
+            'required'=>'%s Harus Diisi !!!'
+        ));
+        $this->form_validation->set_rules('password', 'password', 'required', array(
+            'required'=>'%s Harus Diisi !!!'
+        ));
+
+        if ($this->form_validation->run()== TRUE) {
+            $email = $this->input->post('email');
+            $password = $this->input->post('password');
+            $this->toko_login->login($email, $password);
+        }
+        $data = array(
+            'title' => 'Login Toko',
+        );
+        $this->load->view('toko/v_login_toko', $data, FALSE);
+        
+    }
+
+    public function logout_toko()
+    {
+        $this->toko_login->logout();
+    }
 }
