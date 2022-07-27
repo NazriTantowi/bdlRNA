@@ -45,7 +45,7 @@
                         <td class="text-center"><img src="<?= base_url ('assets/gambar/'. $value -> gambar)?>" width="150px"></td>
                         <td class="text-center"><?= $value->stok ?></td>
                         <td class="text-center">
-                            <a href="<?= base_url('barang/edit/' . $value->id_barang)?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
+                            <a href="<?= base_url('toko/produk/edit/' . $value->id_barang)?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
                             <button class="btn btn-danger btn-sm"data-toggle="modal" data-target="#delete<?=$value->id_barang?>" ><i class="fas fa-trash"></i></button>
                         </td>
                     </tr>

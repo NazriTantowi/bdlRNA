@@ -13,6 +13,9 @@ class M_laporan extends CI_Model
     $this->db->where('DAY(tbl_transaksi.tgl_order)', $tanggal);
     $this->db->where('MONTH(tbl_transaksi.tgl_order)', $bulan);
     $this->db->where('YEAR(tbl_transaksi.tgl_order)', $tahun);
+    $this->db->order_by('tbl_transaksi.id_transaksi', 'desc');
+    
+    
     return $this->db->get()->result(); 
     
  }

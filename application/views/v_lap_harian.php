@@ -19,6 +19,7 @@
                         <tr>
                             <th>#</th>
                             <th>Barang</th>
+                            <th>Customer</th>
                             <th>No order</th>
                             <th>Harga</th>
                             <th>Qty</th>
@@ -35,6 +36,7 @@
                             <tr>
                                 <td><?= $no++ ?></td>
                                 <td><?= $value->nama_barang ?></td>
+                                <td><?= $value->nama_penerima ?></td>
                                 <td><?= $value->no_order ?></td>
                                 <td>Rp. <?= number_format($value->harga, 0) ?></td>
                                 <td><?= $value->qty ?></td>

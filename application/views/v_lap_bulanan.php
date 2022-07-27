@@ -18,6 +18,7 @@
                     <thead>
                         <tr>
                             <th>#</th>
+                            <th>Customer</th>
                             <th>No order</th>
                             <th>Tanggal</th>
                             <th>Total</th>
@@ -31,6 +32,7 @@
                         ?>
                             <tr>
                                 <td><?= $no++ ?></td>
+                                <td><?= $value->nama_penerima ?></td>
                                 <td><?= $value->no_order ?></td>
                                 <td><?= $value->tgl_order ?></td>
                                 <td>Rp. <?= number_format($value->total_bayar, 0)?></td>
