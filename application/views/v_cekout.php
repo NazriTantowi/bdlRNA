@@ -62,91 +62,90 @@
         <div class="col-sm-8 invoice-col">
         Tujuan:
             <div class="row">
-                <div class="col-sm-6">
-                <div class="form-group">
-                        <label>Provinsi</label>
-                        <select name="provinsi" class="form-control"></select>
-                    </div>
-                </div>
-
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label>Kota</label>
-                        <select name="kota" class="form-control"></select>
-                    </div>
-                </div>
-
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label>Ekspedisi</label>
-                        <select name="expedisi" class="form-control"></select>
-                    </div>
-                </div>
-
-                </div>
-
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label>Alamat</label>
-                        <input name="alamat" class="form-control"></input>
-                    </div>
-                </div>
-
                 <div class="col-sm-4">
                     <div class="form-group">
-                        <label>Kode POS</label>
-                        <input name="kode_pos" class="form-control"></input>
+                            <label>Provinsi</label>
+                            <select name="provinsi" class="form-control"></select>
+                        </div>
                     </div>
-                </div>
 
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label>Nama Penerima</label>
-                        <input name="nama_penerima" class="form-control"></input>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>Kota</label>
+                            <select name="kota" class="form-control"></select>
+                        </div>
                     </div>
-                </div>
 
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label>Telpon Penerima</label>
-                        <input name="hp_penerima" class="form-control"></input>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>Ekspedisi</label>
+                            <select name="expedisi" class="form-control"></select>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>Nama Penerima</label>
+                            <input name="nama_penerima" class="form-control"></input>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-9">
+                        <div class="form-group">
+                            <label>Alamat</label>
+                            <input name="alamat" class="form-control"></input>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label>Kode POS</label>
+                            <input name="kode_pos" class="form-control"></input>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>Telpon Penerima</label>
+                            <input name="hp_penerima" class="form-control"></input>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="col-4">
-            <div class="table-responsive">
-                <table class="table">
-                    <tr>
-                        <th style="width:50%">Grand Total:</th>
-                        <td>Rp. <?php echo $this->cart->format_number($this->cart->total(), 0); ?></td>
-                    </tr>
+            <div class="col-4">
+                <div class="table-responsive">
+                    <table class="table">
+                        <tr>
+                            <th style="width:50%">Grand Total:</th>
+                            <td>Rp. <?php echo $this->cart->format_number($this->cart->total(), 0); ?></td>
+                        </tr>
 
-                    <tr>
-                        <th>Berat: (9.3%)</th>
-                        <td><?= $tot_berat ?> Gr</td>
-                    </tr>
-                
-                    <tr>
-                        <th>Ongkir:</th>
-                        <td><label>free</label></td>
-                    </tr>
+                        <tr>
+                            <th>Berat: (9.3%)</th>
+                            <td><?= $tot_berat ?> Gr</td>
+                        </tr>
                     
-                    <tr>
-                        <th>Total Bayar:</th>
-                        <td><label>Rp. <?php echo $this->cart->format_number($this->cart->total(), 0); ?></label></td>
-                    </tr>
-                </table>
+                        <tr>
+                            <th>Ongkir:</th>
+                            <td><label>free</label></td>
+                        </tr>
+                        
+                        <tr>
+                            <th>Total Bayar:</th>
+                            <td><label>Rp. <?php echo $this->cart->format_number($this->cart->total(), 0); ?></label></td>
+                        </tr>
+                    </table>
+                </div>
+                
             </div>
-            
-        </div>
-    </div><br>
-    <div class="row no-print">
-        <div class="col-12">
-            <a href="<?= base_url('belanja') ?>" class="btn btn-warning"><i class="fas fa-backward"></i> Kembali ke Keranjang</a>
-            <button type="submit" class="btn btn-primary float-right" style="margin-right: 5px;">
-            <i class="fas fa-shopping-cart"></i> Proses Cekout</button>
+        </div><br>
+        <div class="row no-print">
+            <div class="col-12">
+                <a href="<?= base_url('belanja') ?>" class="btn btn-warning"><i class="fas fa-backward"></i> Kembali ke Keranjang</a>
+                <button type="submit" class="btn btn-primary float-right" style="margin-right: 5px;">
+                <i class="fas fa-shopping-cart"></i> Proses Cekout</button>
+            </div>
         </div>
     </div>
               
