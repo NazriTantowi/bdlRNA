@@ -75,6 +75,7 @@ class Admin extends CI_Controller
     {
         $data = array(
             'id_transaksi' => $id_transaksi,
+            'no_resi' => $this->input->post('no_resi'),
             'status_order' => '1'
         );
         $this->m_pesanan_masuk->update_order($data);

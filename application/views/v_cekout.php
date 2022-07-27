@@ -83,14 +83,9 @@
                     </div>
                 </div>
 
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label>Paket</label>
-                        <select name="paket" class="form-control"></select>
-                    </div>
-
                 </div>
-                <div class="col-sm-8">
+
+                <div class="col-sm-6">
                     <div class="form-group">
                         <label>Alamat</label>
                         <input name="alamat" class="form-control"></input>
