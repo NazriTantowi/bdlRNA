@@ -17,7 +17,7 @@
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
         <h5><i class="icon fas fa-info"></i>'. $error_upload .'</h5></div>';
       }
-      echo form_open_multipart('toko/produk/edit' . $barang->id_barang) ?>
+      echo form_open_multipart('toko/produk/edit/' . $barang->id_barang) ?>
       <div class="form-group">
         <label>Nama Barang</label>
         <input name="nama_barang" class="form-control" placeholder="Nama Barang" value="<?= $barang->nama_barang?>"> 
@@ -77,7 +77,7 @@
       </div>
       <div class="form-group">
         <button type="submit" class="btn btn-primary btn-sm">Simpan</button>
-        <a href="<?= base_url('barang') ?>" class="btn btn-success btn-sm">Kembali</a>
+        <a href="<?= base_url('toko/produk') ?>" class="btn btn-success btn-sm">Kembali</a>
       </div>
       <?php echo form_close() ?>
     </div>

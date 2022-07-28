@@ -75,7 +75,7 @@
                 </div>
                 <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <a href="<?= base_url('barang/delete/'.$value->id_barang)?>" class="btn btn-primary">Delete</a>
+                    <a href="<?= base_url('toko/produk/delete/'.$value->id_barang)?>" class="btn btn-primary">Delete</a>
                 </div>
             </div>
             <!-- /.modal-content -->

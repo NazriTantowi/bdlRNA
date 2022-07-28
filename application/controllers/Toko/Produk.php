@@ -94,13 +94,14 @@ class Produk extends CI_Controller
             $field_name = "gambar";
             if (!$this->upload->do_upload($field_name)) {
                 $data = array(
-                    'title' => 'Edit Barang',
                     'kategori' => $this->m_kategori->get_all_data(),
                     'barang' => $this->m_barang->get_data($id_barang),
                     'error_upload' => $this->upload->display_errors(),
-                    'isi' => 'barang/v_edit',
                 );
-                $this->load->view('layout/v_wrapper_backend', $data, FALSE);
+                $this->load->view('toko/template_toko/header', $data);
+                $this->load->view('toko/template_toko/sidebar', $data);
+                $this->load->view('toko/v_edit_produk', $data);
+                $this->load->view('toko/template_toko/footer', $data);
             } else {
                  //hapus gambar
                  $barang = $this->m_barang->get_data($id_barang);
@@ -123,7 +124,7 @@ class Produk extends CI_Controller
                 );
                 $this->m_barang->edit($data);
                 $this->session->set_flashdata('pesan', 'Data Berhasil Diedit !');
-                redirect('barang');
+                redirect('toko/produk');
             }
             //jika tanpa ganti gambar
             $data = array(
@@ -136,7 +137,7 @@ class Produk extends CI_Controller
             );
             $this->m_barang->edit($data);
             $this->session->set_flashdata('pesan', 'Data Berhasil Diedit !');
-            redirect('barang');
+            redirect('toko/produk');
 
         }
         
@@ -144,9 +145,12 @@ class Produk extends CI_Controller
             'title' => 'Edit Barang',
             'kategori' => $this->m_kategori->get_all_data(),
             'barang' => $this->m_barang->get_data($id_barang),
-            'isi' => 'barang/v_edit',
+            'isi' => 'toko/v_edit_produk',
         );
-        $this->load->view('layout/v_wrapper_backend', $data, FALSE);
+        $this->load->view('toko/template_toko/header', $data);
+        $this->load->view('toko/template_toko/sidebar', $data);
+        $this->load->view('toko/v_edit_produk', $data);
+        $this->load->view('toko/template_toko/footer', $data);
     }
 
     //Delete one item
@@ -162,6 +166,6 @@ class Produk extends CI_Controller
         $this->m_barang->delete($data);
         $this->session->set_flashdata('pesan', 'Data Berhasil Dihapus !');
         
-        redirect('barang');
+        redirect('toko/produk');
     }
 }
