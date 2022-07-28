@@ -8,4 +8,9 @@ class M_pelanggan extends CI_Model
     {
         $this->db->insert('tbl_pelanggan', $data);
     }
+
+    public function register_toko($data)
+    {
+        $this->db->insert('tbl_toko', $data);
+    }
 }

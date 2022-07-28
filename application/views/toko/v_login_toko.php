@@ -73,8 +73,9 @@
             <button type="submit" class="btn btn-primary btn-block">Log In</button>
           </div>
           <!-- /.col -->
-        </div>
+        </div><br>
      <?php echo form_close() ?>
+     <a href="<?= base_url('toko/register')?>" class="login-box-msg">Register Toko</a>
 
     </div>
     <!-- /.card-body -->
