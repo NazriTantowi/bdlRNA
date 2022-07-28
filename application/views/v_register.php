@@ -39,6 +39,22 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
+                        <input type="text" name="no_tlp" value="<?= set_value('no_tlp') ?>" class="form-control" placeholder="Nomor Telpon">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-envelope"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="text" name="alamat" value="<?= set_value('alamat') ?>" class="form-control" placeholder="Alamat">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-envelope"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
                         <input type="password" name="password" value="<?= set_value('password') ?>" class="form-control" placeholder="Password">
                         <div class="input-group-append">
                             <div class="input-group-text">

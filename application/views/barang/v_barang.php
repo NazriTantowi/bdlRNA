@@ -3,10 +3,7 @@
               <div class="card-header">
                 <h3 class="card-title">Data Produk</h3>
 
-                <div class="card-tools">
-                  <a href="<?= base_url('barang/add')?>" type="button" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i>Add
-                  </a>
-                </div>
+                
                 <!-- /.card-tools -->
               </div>
               <!-- /.card-header -->
