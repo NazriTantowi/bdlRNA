@@ -18,6 +18,8 @@ class Pelanggan extends CI_Controller
     {
         $this->form_validation->set_rules('nama_pelanggan', 'Nama', 'required', array('required' => '%s Harus diisi !'));
         $this->form_validation->set_rules('email', 'Email', 'required', array('required' => '%s Harus diisi !'));
+        $this->form_validation->set_rules('no_tlp', 'no_tlp', 'required', array('required' => '%s Harus diisi !'));
+        $this->form_validation->set_rules('alamat', 'alamat', 'required', array('required' => '%s Harus diisi !'));
         $this->form_validation->set_rules('password', 'Password', 'required', array('required' => '%s Harus diisi !'));
         $this->form_validation->set_rules('repassword', 'Repassword', 'required|matches[password]', array('required' => '%s Harus diisi !'));
         if ($this->form_validation->run() == FALSE) {
@@ -30,6 +32,8 @@ class Pelanggan extends CI_Controller
             $data = array(
                 'nama_pelanggan' => $this->input->post('nama_pelanggan'),
                 'email' => $this->input->post('email'),
+                'no_tlp' => $this->input->post('no_tlp'),
+                'alamat' => $this->input->post('alamat'),
                 'password' => $this->input->post('password'),
 
             );
